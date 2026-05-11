@@ -1,0 +1,26 @@
+{
+  "action": "closed",
+  "issue": {
+    "number": 7,
+    "title": "Support exotic color spaces",
+    "html_url": "https://github.com/y-sunflower/morethemes/issues/7",
+    "body": "Adding OKLCH would be nice but it's out of scope for this library.",
+    "created_at": "2026-04-20T08:00:00Z",
+    "updated_at": "2026-05-11T13:00:00Z",
+    "closed_at": "2026-05-11T13:00:00Z",
+    "state_reason": "not_planned",
+    "user": {
+      "login": "JosephBARBIERDARNAL",
+      "html_url": "https://github.com/JosephBARBIERDARNAL",
+      "avatar_url": "https://avatars.githubusercontent.com/u/79746670?v=4"
+    },
+    "labels": []
+  },
+  "repository": {
+    "full_name": "y-sunflower/morethemes",
+    "html_url": "https://github.com/y-sunflower/morethemes",
+    "owner": {
+      "avatar_url": "https://avatars.githubusercontent.com/u/205985388?v=4"
+    }
+  }
+}

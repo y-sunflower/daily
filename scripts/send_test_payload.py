@@ -25,6 +25,8 @@ FIXTURES = ROOT / "tests" / "fixtures"
 
 EVENT_BY_FIXTURE = {
     "issue_opened": "issues",
+    "issue_closed_completed": "issues",
+    "issue_closed_not_planned": "issues",
     "pr_opened": "pull_request",
     "pr_merged": "pull_request",
     "pr_closed_unmerged": "pull_request",

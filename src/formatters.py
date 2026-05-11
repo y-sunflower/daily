@@ -1,6 +1,8 @@
 from typing import Any
 
 COLOR_ISSUE_OPENED = 0x2CBE4E
+COLOR_ISSUE_CLOSED_COMPLETED = 0x8957E5
+COLOR_ISSUE_CLOSED_NOT_PLANNED = 0x6E7681
 COLOR_PR_OPENED = 0x0366D6
 COLOR_PR_MERGED = 0x6F42C1
 COLOR_PR_CLOSED = 0xCB2431
@@ -62,6 +64,32 @@ def issue_opened(payload: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def issue_closed(payload: dict[str, Any]) -> dict[str, Any]:
+    issue = payload["issue"]
+    repo = payload["repository"]
+    reason = issue.get("state_reason") or "completed"
+    if reason == "not_planned":
+        emoji, color, reason_label = "🚫", COLOR_ISSUE_CLOSED_NOT_PLANNED, "Not planned"
+    elif reason == "duplicate":
+        emoji, color, reason_label = "🔁", COLOR_ISSUE_CLOSED_NOT_PLANNED, "Duplicate"
+    else:
+        emoji, color, reason_label = "✅", COLOR_ISSUE_CLOSED_COMPLETED, "Completed"
+    reason_field = {"name": "Reason", "value": reason_label, "inline": True}
+    return {
+        "author": _author_block(repo),
+        "title": f"{emoji} Issue #{issue['number']} closed: {issue['title']}",
+        "url": issue["html_url"],
+        "color": color,
+        "description": _truncate(issue.get("body")),
+        "fields": _build_fields(
+            _user_field(issue["user"]),
+            reason_field,
+            _labels_field(issue.get("labels", [])),
+        ),
+        "timestamp": issue.get("closed_at") or issue.get("updated_at"),
+    }
+
+
 def pr_opened(payload: dict[str, Any]) -> dict[str, Any]:
     pr = payload["pull_request"]
     repo = payload["repository"]
@@ -116,6 +144,8 @@ def format_event(event: str, payload: dict[str, Any]) -> dict[str, Any] | None:
     action = payload.get("action")
     if event == "issues" and action == "opened":
         return issue_opened(payload)
+    if event == "issues" and action == "closed":
+        return issue_closed(payload)
     if event == "pull_request" and action == "opened":
         return pr_opened(payload)
     if event == "pull_request" and action == "closed":

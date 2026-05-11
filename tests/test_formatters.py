@@ -1,4 +1,6 @@
 from src.formatters import (
+    COLOR_ISSUE_CLOSED_COMPLETED,
+    COLOR_ISSUE_CLOSED_NOT_PLANNED,
     COLOR_ISSUE_OPENED,
     COLOR_PR_CLOSED,
     COLOR_PR_MERGED,
@@ -21,6 +23,25 @@ def test_issue_opened(load_fixture):
     labels_value = next(f["value"] for f in embed["fields"] if f["name"] == "Labels")
     assert "`bug`" in labels_value
     assert "`good first issue`" in labels_value
+
+
+def test_issue_closed_completed(load_fixture):
+    embed = format_event("issues", load_fixture("issue_closed_completed"))
+    assert embed is not None
+    assert embed["color"] == COLOR_ISSUE_CLOSED_COMPLETED
+    assert embed["title"].startswith("✅ Issue #1 closed:")
+    assert embed["timestamp"] == "2026-05-11T12:43:48Z"
+    reason = next(f for f in embed["fields"] if f["name"] == "Reason")
+    assert reason["value"] == "Completed"
+
+
+def test_issue_closed_not_planned(load_fixture):
+    embed = format_event("issues", load_fixture("issue_closed_not_planned"))
+    assert embed is not None
+    assert embed["color"] == COLOR_ISSUE_CLOSED_NOT_PLANNED
+    assert embed["title"].startswith("🚫 Issue #7 closed:")
+    reason = next(f for f in embed["fields"] if f["name"] == "Reason")
+    assert reason["value"] == "Not planned"
 
 
 def test_pr_opened(load_fixture):
