@@ -20,6 +20,3 @@ dev = [
 asyncio_mode = "auto"
 testpaths = ["tests"]
 pythonpath = ["."]
-
-[tool.vercel]
-tool.vercel.entrypoint = "api/webhook.py"

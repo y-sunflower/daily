@@ -1,8 +1,8 @@
 import logging
 import os
 
-from fastapi import FastAPI, Header, HTTPException, Request, Response
 from dotenv import load_dotenv
+from fastapi import FastAPI, Header, HTTPException, Request, Response
 
 from src.discord import post_embed
 from src.formatters import format_event
