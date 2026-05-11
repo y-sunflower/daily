@@ -1,0 +1,26 @@
+{
+  "action": "opened",
+  "issue": {
+    "number": 42,
+    "title": "Plots render blank on dark backgrounds",
+    "html_url": "https://github.com/y-sunflower/morethemes/issues/42",
+    "body": "When the background color is set to a dark hex value, the axis lines disappear because they default to black. We should detect contrast and flip them to white.",
+    "created_at": "2026-05-11T10:23:00Z",
+    "user": {
+      "login": "joseph-barbier",
+      "html_url": "https://github.com/joseph-barbier",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1?v=4"
+    },
+    "labels": [
+      {"name": "bug", "color": "d73a4a"},
+      {"name": "good first issue", "color": "7057ff"}
+    ]
+  },
+  "repository": {
+    "full_name": "y-sunflower/morethemes",
+    "html_url": "https://github.com/y-sunflower/morethemes",
+    "owner": {
+      "avatar_url": "https://avatars.githubusercontent.com/u/999?v=4"
+    }
+  }
+}

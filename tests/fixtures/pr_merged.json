@@ -1,0 +1,31 @@
+{
+  "action": "closed",
+  "pull_request": {
+    "number": 17,
+    "title": "Add dark theme variants for all plot types",
+    "html_url": "https://github.com/y-sunflower/morethemes/pull/17",
+    "body": "Adds dark_minimal, dark_paper, and dark_grid themes. Closes #42.",
+    "created_at": "2026-05-11T11:05:00Z",
+    "closed_at": "2026-05-11T14:32:00Z",
+    "updated_at": "2026-05-11T14:32:00Z",
+    "merged": true,
+    "additions": 120,
+    "deletions": 8,
+    "changed_files": 4,
+    "user": {
+      "login": "joseph-barbier",
+      "html_url": "https://github.com/joseph-barbier",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1?v=4"
+    },
+    "labels": [],
+    "base": {"ref": "main"},
+    "head": {"ref": "feature/dark-themes"}
+  },
+  "repository": {
+    "full_name": "y-sunflower/morethemes",
+    "html_url": "https://github.com/y-sunflower/morethemes",
+    "owner": {
+      "avatar_url": "https://avatars.githubusercontent.com/u/999?v=4"
+    }
+  }
+}
