@@ -20,6 +20,7 @@ load_dotenv()
 
 @app.get("/api/webhook")
 async def health() -> dict[str, object]:
+    log.info("Checking...")
     return {
         "status": "ok",
         "secret_configured": bool(os.environ.get("GITHUB_WEBHOOK_SECRET")),
