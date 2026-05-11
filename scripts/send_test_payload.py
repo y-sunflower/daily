@@ -17,6 +17,8 @@ import sys
 from pathlib import Path
 
 import httpx
+from dotenv import load_dotenv
+
 
 ROOT = Path(__file__).resolve().parent.parent
 FIXTURES = ROOT / "tests" / "fixtures"
@@ -27,6 +29,8 @@ EVENT_BY_FIXTURE = {
     "pr_merged": "pull_request",
     "pr_closed_unmerged": "pull_request",
 }
+
+load_dotenv()
 
 
 def main() -> None:

@@ -5,7 +5,8 @@ description = "Discord notifier for y-sunflower GitHub org events"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-  "fastapi>=0.136.1",
+  "dotenv>=0.9.9",
+  "fastapi[standard]>=0.136.1",
   "httpx>=0.28.1",
 ]
 

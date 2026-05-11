@@ -2,6 +2,7 @@ import logging
 import os
 
 from fastapi import FastAPI, Header, HTTPException, Request, Response
+from dotenv import load_dotenv
 
 from src.discord import post_embed
 from src.formatters import format_event
@@ -11,6 +12,8 @@ logging.basicConfig(level=logging.INFO)
 log = logging.getLogger(__name__)
 
 app = FastAPI()
+
+load_dotenv()
 
 
 @app.get("/api/webhook")
