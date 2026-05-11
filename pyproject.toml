@@ -22,4 +22,4 @@ testpaths = ["tests"]
 pythonpath = ["."]
 
 [tool.vercel]
-entrypoint = "api/webhook.py"
+tool.vercel.entrypoint = "api/webhook.py"
